@@ -32,7 +32,7 @@ export default {
   },
   data() {
     return {
-      rpi_ip: null,
+      rpi_ip: '192.168.0.104',
       color: '#ffffff',
       suckerCanvas: null,
       suckerArea: [],
