@@ -12,6 +12,9 @@ pixel_pin = board.D18
 # The number of NeoPixels
 num_pixels = 120
 
+# num pixels to skip
+num_pixels_skip = 25
+
 # The order of the pixel colors - RGB or GRB. Some NeoPixels have red and green reversed!
 # For RGBW NeoPixels, simply change the ORDER to RGBW or GRBW.
 ORDER = neopixel.GRB
@@ -49,7 +52,7 @@ def wheel(pos):
 
 def rainbow_cycle(wait):
     for j in range(255):
-        for i in range(num_pixels):
+        for i in range(num_pixels_skip, num_pixels):
             pixel_index = (i * 256 // num_pixels) + j
             pixels[i] = wheel(pixel_index & 255)
         pixels.show()
@@ -59,4 +62,9 @@ def rainbow_cycle(wait):
 def set_color(rgb_tuple):
     # rgb_tuple = (255, 0, 0)
     pixels.fill(rgb_tuple)
+    
+    # skip first
+    for i in range(num_pixels_skip):
+        pixels[i] = (0, 0, 0)
+
     pixels.show()
