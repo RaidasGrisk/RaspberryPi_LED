@@ -4,7 +4,7 @@ from flask_cors import CORS
 app = Flask(__name__)
 CORS(app)
 
-# from endpoints import set_color, rainbow_cycle
+from endpoints import set_color, rainbow_cycle
 from flask import request
 
 
