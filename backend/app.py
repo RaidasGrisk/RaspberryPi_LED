@@ -1,7 +1,10 @@
 from flask import Flask
-app = Flask(__name__)
+from flask_cors import CORS
 
-from endpoints import set_color, rainbow_cycle
+app = Flask(__name__)
+CORS(app)
+
+# from endpoints import set_color, rainbow_cycle
 from flask import request
 
 
@@ -24,6 +27,5 @@ def set_color_rainbow(wait=0.01):
     rainbow_cycle(float(wait))
     return 'done!'
 
-
-# scp /home/raidas/Desktop/RaspberryPi_LED/* pi@192.168.43.195:/home/pi/RaspberryPi_LED
-# sudo flask run --host=0.0.0.0
+if __name__ == '__main__':
+    app.run()
