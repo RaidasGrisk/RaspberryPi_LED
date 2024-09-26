@@ -32,7 +32,7 @@
       console.log('dev')
     } else {
       console.log(`setting default ip to ${deafultIp}`)
-      ip.value = deafultIp
+      ip.value = deafultIp.match(/\b\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}\b/)[0]
     }
   })
 
